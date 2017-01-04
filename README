@@ -1,0 +1,7 @@
+$Id: README,v 1.2 2002/06/25 16:42:20 abs Exp $
+
+Print text, postscript, or native printer language to arbitrary
+printers, either connected to the local unix server, or remote
+machine via SMB (if samba is installed).
+
+If running NetBSD or pkgsrc on another system install pkgsrc/print/if-psrint.
