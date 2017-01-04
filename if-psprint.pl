@@ -104,7 +104,7 @@ $ENV{PATH} = "/usr/local/bin:/usr/bin:/bin";
 
 my ( $user, $dest, $spoolhost, $device, $model, $version, %opt, );
 
-$version = '1.9';
+$version = '1.10';
 
 # Parse options (ignore most)
 #

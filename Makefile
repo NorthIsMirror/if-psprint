@@ -2,11 +2,11 @@
 #
 
 PKGNAME=if-psprint
-PROG=${PKGNAME}.pl
+PROG=${PKGNAME}
 MANSECTION=8
-FILES=Makefile ${PROG} README
-GENFILES=${PKGNAME}.${MANSECTION}
-VERSION!=perl -T ./${PROG} -V
+FILES=Makefile ${PROG}.pl README
+GENFILES=${PROG} ${PKGNAME}.${MANSECTION}
+VERSION!=perl -T ./${PROG}.pl -V
 
 INSTALL_DATA	?= install -m 0644
 INSTALL_DIR	?= install -d
@@ -37,6 +37,10 @@ install: ${PKGNAME}.${MANSECTION}
 	${INSTALL_MAN} ${PKGNAME}.${MANSECTION} ${DESTDIR}${PREFIX}/man/man${MANSECTION}
 
 # GENFILES
+
+${PROG}: ${PROG}.pl Makefile
+	sed -e 's:/usr/local:${PREFIX}:'  < ${PROG}.pl > ${PROG}
+	chmod 755 ${PROG}
 
 ${PKGNAME}.${MANSECTION}:	${PROG}
 	pod2man ${PROG} > ${PKGNAME}.${MANSECTION}
